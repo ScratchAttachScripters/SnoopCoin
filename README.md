@@ -1,1 +1,1 @@
-SnoopCoin is a project maintained by ScratchAttachScripters. It is made using ScratchAttach.
+SnoopCoin is a currency maintained by ScratchAttachScripters. It is made using ScratchAttach.
