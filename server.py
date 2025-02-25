@@ -29,3 +29,8 @@ else:
     balances.append(user)
     balances.append("100")
     return "new"
+
+@client.request
+def gift(argument1, argument2) # arg1 is the amount you want to gift and arg2 is who you want to gift it go
+    if argument2 in balances:
+        balances[balances.index(argument2) + 1] = balances[balances.index(argument2) + 1] + argument1
