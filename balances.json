@@ -1,1 +1,6 @@
-{"user1", "500"}
+{
+  "users": [
+    { "username": "Alice", "balance": 100 },
+    { "username": "Bob", "balance": 250 }
+  ]
+}
