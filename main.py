@@ -14,11 +14,7 @@ class Runner:
 
 # Define the scripts
 server = "server.py"
-api = "api.py"
 
 # Create instances and run
 server_runner = Runner(server)
 server_runner.start()
-
-api_runner = Runner(api)
-api_runner.start()
