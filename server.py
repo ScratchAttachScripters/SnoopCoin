@@ -1,9 +1,9 @@
 import os
-
+# balances contains first the person's name then their balance e.g item1 = user1 item2 = user1's balance etc
 os.system('pip install scratchattach')
 os.system('pip install flask')
 # template here: os.system('pip install package_name')
-
+space = 
 import scratchattach
 import flask
 import json # built in module
@@ -31,6 +31,16 @@ else:
     return "new"
 
 @client.request
-def gift(argument1, argument2) # arg1 is the amount you want to gift and arg2 is who you want to gift it go
-    if argument2 in balances:
-        balances[balances.index(argument2) + 1] = balances[balances.index(argument2) + 1] + argument1
+def gift(argument1, argument2) # arg1 is the amount you want to gift and arg2 is who you want to gift it to then a space then who gifted it to you. 
+    for i in argument2
+        if argument2[i] == space:
+            if who_gift in balances:
+                balances[balances.index(who_gift) + 1] = balances[balances.index(who_gift) + 1] + argument1
+                item = i
+                for i in range(item, len(argument)) 
+                    gifter = gifter + argument2[i]
+                    
+                balances[balances.index(gifter) + 1] = balances[balances.index(gifter) + 1] - argument1
+        else:
+            who_gift = who_gift + argument2[i] 
+    
