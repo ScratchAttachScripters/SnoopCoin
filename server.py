@@ -4,12 +4,27 @@ os.system('pip install scratchattach')
 os.system('pip install flask')
 # template here: os.system('pip install package_name')
 space = 
-import scratchattach
-import flask
+from flask import Flask, render_template, request
 import json # built in module
 
 with open ('balances.json','r') as file:
     balances = json.load(file)
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    username = request.args.get('username', 'Guest')  # Get 'username' from URL or default to 'Guest'
+    balance_z = balances[balances.index(username) + 1]
+    data = {
+        "balance": f"{balance_z}",
+        "user": f"{username}"
+    }
+
+    return render_template('index.html', **data)
+
+
+import scratchattach
 
 session = sa.login("username", "password")
 project = session.connect_cloud('project id')
@@ -44,3 +59,5 @@ def gift(argument1, argument2) # arg1 is the amount you want to gift and arg2 is
         else:
             who_gift = who_gift + argument2[i] 
     
+if __name__ == '__main__':
+    app.run(debug=True)
