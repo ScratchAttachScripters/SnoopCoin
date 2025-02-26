@@ -5,9 +5,10 @@ os.system('pip install flask')
 # template here: os.system('pip install package_name')
 space = 
 from flask import Flask, render_template, request
-import json # built in module
+import json
 
-with open ('balances.json','r') as file:
+# Load balances from a JSON file
+with open('balances.json', 'r') as file:
     balances = json.load(file)
 
 app = Flask(__name__)
@@ -15,15 +16,20 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     username = request.args.get('username', 'Guest')  # Get 'username' from URL or default to 'Guest'
-    balance_z = balances[balances.index(username) + 1]
+    
+    # Check if username exists in balances and get the balance
+    if username in balances:
+        user_index = balances.index(username)
+        balance_z = balances[user_index + 1] if user_index + 1 < len(balances) else '0'
+    else:
+        balance_z = '0'
+
     data = {
-        "balance": f"{balance_z}",
-        "user": f"{username}"
+        "balance": balance_z,
+        "user": username
     }
 
     return render_template('index.html', **data)
-
-
 import scratchattach
 
 session = sa.login("username", "password")
